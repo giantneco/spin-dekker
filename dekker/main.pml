@@ -1,5 +1,4 @@
 #include "../common.pml"
-#include "../never.pml"
 
 int favored = 1;
 int Thread1WantsToEnter = 0;
