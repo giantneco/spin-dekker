@@ -28,7 +28,7 @@ pan2.c: main.pml
 	mv pan.c pan2.c
 
 pan3.c: main.pml
-	spin -N ../faireness.rule -a main.pml
+	spin -N ../fairness.rule -a main.pml
 	mv pan.c pan3.c
 
 clean:
