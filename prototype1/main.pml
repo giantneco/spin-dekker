@@ -1,8 +1,6 @@
 #include "../common.pml"
 
 int current = 0;
-int op1 = 1;
-int op2 = 1;
 
 active proctype Thread1() {
   do
@@ -10,7 +8,6 @@ active proctype Thread1() {
        CriticalSection1();
        current = 1;
        OtherStuf1();
-       break;
     :: Locked1();
   od;
 }
