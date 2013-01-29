@@ -13,7 +13,7 @@ active proctype Thread1() {
 	    if
 	      :: favored == 2 ->
 		 Thread1WantsToEnter = 0;
-		 favored == 2; /* spin wait */
+		 favored != 2; /* spin wait */
 		 Thread1WantsToEnter = 1;
 	    fi
        od;
@@ -33,7 +33,7 @@ active proctype Thread2() {
 	    if
 	      :: favored == 1 ->
 		 Thread2WantsToEnter = 0;
-		 favored == 1; /* spin wait */
+		 favored != 1; /* spin wait */
 		 Thread2WantsToEnter = 1;
 	    fi
        od;
