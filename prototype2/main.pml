@@ -6,7 +6,7 @@ int Thread2Inside = 0;
 active proctype Thread1() {
   do
     :: do
-	 :: Thread2Inside != 1 -> break;
+	 :: atomic { Locked1() ; Thread2Inside != 1} -> break;
        od;
        Thread1Inside = 0;
        CriticalSection1();
@@ -18,7 +18,7 @@ active proctype Thread1() {
 active proctype Thread2() {
   do
     :: do
-	 :: Thread1Inside != 1 -> break;
+	 :: atomic { Locked2() ; Thread1Inside != 1} -> break;
        od;
        Thread2Inside = 0;
        CriticalSection2();

@@ -7,11 +7,10 @@ active proctype Thread1() {
   do
     :: Thread1WantsToEnter = 1;
        do
-	 :: Thread2WantsToEnter != 1 -> break;
+	 :: atomic { Locked1() ; Thread2WantsToEnter != 1} -> break;
        od;
        CriticalSection1();
        Thread1WantsToEnter = 0;
-       skip;
   od;
 }
 
@@ -19,10 +18,9 @@ active proctype Thread2() {
   do
     :: Thread2WantsToEnter = 1;
        do
-	 :: Thread1WantsToEnter != 1 -> break;
+	 :: atomic { Locked2() ; Thread1WantsToEnter != 1} -> break;
        od;
        CriticalSection2();
        Thread2WantsToEnter = 0;
-       skip;
   od;
 }
