@@ -8,7 +8,7 @@ CFLAGS =
 all: pan.isExclusive pan.isCooperative pan.isFare pan
 
 pan: pan.c
-	gcc $(CPPFLAGS) $(CFLAGS) -o $@ $<
+	gcc -DNP $(CPPFLAGS) $(CFLAGS) -o $@ $<
 pan.isExclusive: pan1.c
 	gcc $(CPPFLAGS) $(CFLAGS) -o $@ $<
 pan.isCooperative: pan2.c
